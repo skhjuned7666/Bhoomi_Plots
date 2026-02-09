@@ -44,6 +44,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const switchToRegister = document.getElementById("switchToRegister");
   const switchToLogin = document.getElementById("switchToLogin");
   const closeButtons = document.querySelectorAll("[data-auth-close]");
+  const navbar = document.querySelector(".navbar");
+  const navToggle = document.getElementById("navToggle");
 
   function openModal(type) {
     if (!authBackdrop || !loginModal || !registerModal) return;
@@ -104,6 +106,14 @@ document.addEventListener("DOMContentLoaded", function () {
       if (e.target === authBackdrop) {
         closeModal();
       }
+    });
+  }
+
+  // Mobile navbar toggle
+  if (navToggle && navbar) {
+    navToggle.addEventListener("click", function () {
+      const isOpen = navbar.classList.toggle("nav-open");
+      navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
     });
   }
 

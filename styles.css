@@ -119,6 +119,16 @@ ul {
   gap: 20px;
 }
 
+/* Mobile nav toggle (hamburger) - hidden on desktop */
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
 .nav-actions a {
   color: white;
 }
@@ -690,6 +700,9 @@ ul {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .card:hover {
@@ -736,6 +749,9 @@ ul {
 
 .card-body {
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .price {
@@ -773,19 +789,15 @@ ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 15px;
+  margin-top: auto;
   border-top: 1px solid #f0f0f0;
   padding-top: 10px;
   font-size: 0.8rem;
   color: var(--text-gray);
 }
 
-/* Featured Card Style (Simulating the 4th card in image) */
-.card.featured {
-  border: 2px solid transparent;
-}
-
-.card.featured .view-btn {
+/* View Property button - used in all cards */
+.view-btn {
   display: block;
   width: 100%;
   background: var(--primary);
@@ -795,6 +807,11 @@ ul {
   border-radius: 8px;
   margin-top: 15px;
   font-weight: 600;
+}
+
+/* Featured Card Style (for special highlight if needed) */
+.card.featured {
+  border: 2px solid transparent;
 }
 
 /* Avatars for Apartment section */
@@ -814,28 +831,179 @@ ul {
 
 /* --- RESPONSIVE DESIGN --- */
 @media (max-width: 900px) {
+  /* Navbar */
+  .hero {
+    height: auto;
+    min-height: 0;
+    padding: 110px 0 60px;
+  }
+
   .hero h1 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     padding: 0 20px;
   }
 
-  /* Hide nav links on tablet/mobile */
+  /* Show hamburger, hide desktop nav by default */
+  .nav-toggle {
+    display: block;
+  }
+
   .nav-links,
   .nav-auth {
     display: none;
   }
 
-  /* Add Hamburger (Visual only for this code) */
-  .navbar::after {
-    content: "\f0c9";
-    font-family: "Font Awesome 6 Free";
-    font-weight: 900;
-    font-size: 1.5rem;
-    cursor: pointer;
+  /* Mobile dropdown menu */
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .navbar.nav-open .nav-links,
+  .navbar.nav-open .nav-auth {
+    display: flex;
+  }
+
+  .navbar.nav-open .nav-links {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    flex-direction: column;
+    background: rgba(15, 23, 42, 0.98);
+    padding: 10px 5%;
+    width: 100%;
+    gap: 16px;
+  }
+
+  .navbar.nav-open .nav-auth {
+    position: absolute;
+    right: 5%;
+    top: calc(100% + 200px);
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* Search area */
+  .search-container {
+    width: 94%;
+    border-radius: 18px;
+  }
+
+  .search-tabs {
+    padding: 14px 18px 0;
+    gap: 18px;
+    font-size: 0.85rem;
+    overflow-x: auto;
+    justify-content: flex-start;
+  }
+
+  .search-main {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .search-actions {
+    justify-content: flex-end;
+  }
+
+  /* Sections & cards */
+  .section-header {
+    padding: 30px 4% 16px;
+  }
+
+  .section-header h2 {
+    font-size: 1.3rem;
+  }
+
+  .grid-container {
+    padding: 0 4% 40px;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+  }
+
+  .card-body {
+    padding: 16px;
+  }
+
+  /* Property modal - tablet */
+  .property-modal {
+    max-width: 100%;
+    margin: 0 12px;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  }
+
+  .property-modal-body {
+    padding: 16px 18px;
+  }
+
+  .property-modal-body h2 {
+    font-size: 1.05rem;
   }
 }
 
 @media (max-width: 600px) {
+  .hero {
+    padding: 100px 0 40px;
+    /* Mobile par background image ki awkward cropping avoid karne ke liye
+       sirf soft gradient background use karein, full-width clean look ke liye */
+    background: linear-gradient(
+      to bottom,
+      #ffffff 0,
+      #f3f4ff 40%,
+      #f8f9fc 100%
+    );
+  }
+
+  /* Popular cards strip - mobile par hide */
+  .popular-cards {
+    display: none;
+  }
+
+  /* Property modal - mobile stack layout */
+  .property-modal {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+    margin: 0 8px;
+    border-radius: 16px;
+  }
+
+  .property-modal-img-wrap {
+    max-height: 260px;
+  }
+
+  .property-modal-img-wrap img {
+    height: 100%;
+  }
+
+  .property-modal-body {
+    padding: 16px 14px 18px;
+  }
+
+  .property-modal-body h2 {
+    font-size: 1rem;
+  }
+
+  .property-location,
+  .property-meta,
+  .property-points {
+    font-size: 0.8rem;
+  }
+
+  .property-points {
+    padding-left: 16px;
+  }
+
+  .property-cta {
+    width: 100%;
+  }
+
+  .property-close {
+    top: 8px;
+    right: 10px;
+  }
+
   .hero h1 {
     font-size: 1.8rem;
   }
@@ -844,9 +1012,19 @@ ul {
     width: 95%;
   }
 
+  .search-tabs {
+    gap: 12px;
+    padding: 12px 14px 0;
+  }
+
   .search-main {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .btn-search {
+    width: 100%;
+    justify-content: center;
   }
 
   .grid-container {
