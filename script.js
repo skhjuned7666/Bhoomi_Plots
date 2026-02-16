@@ -162,6 +162,42 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // Social Handlers popup
+  const socialHandlersBtn = document.getElementById("socialHandlersBtn");
+  const socialPopbackdrop = document.getElementById("socialPopbackdrop");
+  const socialPopClose = document.getElementById("socialPopClose");
+
+  function openSocialPop() {
+    if (!socialPopbackdrop) return;
+    socialPopbackdrop.classList.add("show");
+    socialPopbackdrop.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeSocialPop() {
+    if (!socialPopbackdrop) return;
+    socialPopbackdrop.classList.remove("show");
+    socialPopbackdrop.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
+
+  if (socialHandlersBtn) {
+    socialHandlersBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      openSocialPop();
+    });
+  }
+
+  if (socialPopClose) {
+    socialPopClose.addEventListener("click", closeSocialPop);
+  }
+
+  if (socialPopbackdrop) {
+    socialPopbackdrop.addEventListener("click", function (e) {
+      if (e.target === socialPopbackdrop) closeSocialPop();
+    });
+  }
+
   // Property quick view modal
   const propertyBackdrop = document.getElementById("propertyBackdrop");
   const propertyClose = document.getElementById("propertyClose");
