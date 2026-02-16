@@ -235,5 +235,16 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   }
+
+  // FAQ accordion (Videos & FAQ section)
+  const faqItems = document.querySelectorAll(".faq-item");
+  faqItems.forEach((item) => {
+    const btn = item.querySelector(".faq-question");
+    if (!btn) return;
+    btn.addEventListener("click", function () {
+      const isOpen = item.classList.toggle("is-open");
+      btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+  });
 });
 
