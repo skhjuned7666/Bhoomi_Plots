@@ -79,7 +79,7 @@
 
     <header class="hero">
       <video class="hero-video" autoplay muted loop playsinline>
-        <source src="https://assets.mixkit.co/videos/14825/14825-720.mp4" type="video/mp4" />
+        <source src="bhoomi video Hero section.mp4" type="video/mp4" />
       </video>
       <h1>
         Get Best Deals on <br> <span> Land, Plots, Homes & Profitable Investments</span> <br> All in One Place.
@@ -220,46 +220,94 @@
     </section>
 
     <!-- Testimonials -->
-    <section class="testimonials-section">
+    <section class="testimonials-section" aria-label="Testimonials">
       <div class="testimonials-bg">
         <div class="testimonials-grid-overlay"></div>
       </div>
       <h2 class="testimonials-title">Testimonials</h2>
       <p class="testimonials-subtitle">What our clients say about us</p>
-      <div class="testimonials-inner">
-        <div class="testimonial-card">
-          <div class="testimonial-quote-icon"><i class="fas fa-quote-left"></i></div>
-          <p class="testimonial-text">Bhoomi Plots helped us find the perfect plot for our dream home. Their team was transparent, professional and went the extra mile. Highly recommended.</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">R</div>
-            <div>
-              <strong>Rajesh K.</strong>
-              <span>First-time buyer, Pune</span>
+
+      <div class="testimonials-carousel" aria-roledescription="carousel">
+        <button type="button" class="testimonials-arrow testimonials-arrow-prev" aria-label="Previous testimonials">
+          <i class="fas fa-chevron-left" aria-hidden="true"></i>
+        </button>
+
+        <div class="testimonials-viewport">
+          <div class="testimonials-track">
+            <div class="testimonial-card" data-kind="text">
+              <div class="testimonial-quote-icon"><i class="fas fa-quote-left"></i></div>
+              <p class="testimonial-text">Bhoomi Plots helped us find the perfect plot for our dream home. Their team was transparent, professional and went the extra mile. Highly recommended.</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">R</div>
+                <div>
+                  <strong>Rajesh K.</strong>
+                  <span>First-time buyer, Pune</span>
+                </div>
+              </div>
             </div>
+
+            <div class="testimonial-card" data-kind="video">
+              <div class="testimonial-video-frame">
+                <video preload="metadata" controls playsinline>
+                  <source src="testinominal-video/02.MP4" type="video/mp4" />
+                </video>
+              </div>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">P</div>
+                <div>
+                  <strong>Priya M.</strong>
+                  <span>Investor, Mumbai</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-card" data-kind="text">
+              <div class="testimonial-quote-icon"><i class="fas fa-quote-left"></i></div>
+              <p class="testimonial-text">We invested in two plots through Bhoomi and the entire process was smooth. Accurate guidance and best quality documentation. Trust them for land deals.</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">P</div>
+                <div>
+                  <strong>Priya M.</strong>
+                  <span>Investor, Mumbai</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-card" data-kind="video">
+              <div class="testimonial-video-frame">
+                <video preload="metadata" controls playsinline>
+                  <source src="testinominal-video/01.MP4" type="video/mp4" />
+                </video>
+              </div>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">A</div>
+                <div>
+                  <strong>Amit S.</strong>
+                  <span>Residential buyer, Baner</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-card" data-kind="text">
+              <div class="testimonial-quote-icon"><i class="fas fa-quote-left"></i></div>
+              <p class="testimonial-text">From consultation to registration, Bhoomi Plots and Lands gave us better options and solutions. Our family is now in a RERA-approved project. Thank you!</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">A</div>
+                <div>
+                  <strong>Amit S.</strong>
+                  <span>Residential buyer, Baner</span>
+                </div>
+              </div>
+            </div>
+
+            
+
           </div>
         </div>
-        <div class="testimonial-card">
-          <div class="testimonial-quote-icon"><i class="fas fa-quote-left"></i></div>
-          <p class="testimonial-text">We invested in two plots through Bhoomi and the entire process was smooth. Accurate guidance and best quality documentation. Trust them for land deals.</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">P</div>
-            <div>
-              <strong>Priya M.</strong>
-              <span>Investor, Mumbai</span>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-card">
-          <div class="testimonial-quote-icon"><i class="fas fa-quote-left"></i></div>
-          <p class="testimonial-text">From consultation to registration, Bhoomi Plots and Lands gave us better options and solutions. Our family is now in a RERA-approved project. Thank you!</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">A</div>
-            <div>
-              <strong>Amit S.</strong>
-              <span>Residential buyer, Baner</span>
-            </div>
-          </div>
-        </div>
+
+        <button type="button" class="testimonials-arrow testimonials-arrow-next" aria-label="Next testimonials">
+          <i class="fas fa-chevron-right" aria-hidden="true"></i>
+        </button>
       </div>
     </section>
 
